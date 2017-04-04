@@ -57,8 +57,8 @@ $(document).ready(function(){
         $('.books').prepend($pagesli)
         $('.page').click(function(e){
           var p = $(this).attr('value')
-          var stuff = p * 2
-          var minimum = stuff - 2
+          var stuff = p * 10
+          var minimum = stuff - 10
           $('.book').each(function(ind, el){
             console.log(ind, el)
             if ($(el).index('.book')+ 1 > minimum && $(el).index('.book') < stuff ){
@@ -71,7 +71,7 @@ $(document).ready(function(){
       }
       $('.book').each(function(ind, el){
         console.log(ind, el)
-        if ($(el).index('.book') > 1){
+        if ($(el).index('.book') > 9){
         $(el).hide()
       }
       })
