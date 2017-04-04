@@ -1,0 +1,134 @@
+.copy {
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white
+}
+#home{
+  padding: 20px;
+  max-width: 100%;
+  width: 100%
+}
+*{
+  font-family: 'Crimson Text', serif;
+}
+.flex{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+.flex1 {
+  flex: 1
+}
+.flex2{
+  flex: 2;
+}
+.info-cont {
+}
+#p1, h6{
+  margin: 20px;
+  padding: 10px;
+  border: 2px solid black
+}
+p {
+  border: 2px solid black;
+  word-break: break-all;
+  word-wrap: break-word;
+  padding: 10px
+}
+#p2{
+  border: 2px solid black;
+  word-break: break-all;
+  word-wrap: break-word;
+  padding: 10px;
+  margin:20px
+}
+#p3{
+  border: 2px solid black;
+  word-break: break-all;
+  word-wrap: break-word;
+  padding: 10px;
+  margin:20px
+}
+h6{
+  text-decoration: bold;
+  text-align: center;
+  background-color: #e7e7e7
+}
+.main {
+  padding: 0
+}
+li a{
+  color: #7f7f82;
+  background-color: #dddddd;
+  border-radius: 0
+}
+.navbar-nav {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  color: black
+}
+.navbar-nav li {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  color: black
+}
+.navbar-default .navbar-nav>li> a {
+  color: #7f7f82
+}
+.navbar {
+  color: black;
+  border: 2px solid black;
+  margin-bottom: 20px
+}
+*{
+  color: black
+}
+.copy {
+  border: 2px solid black;
+  color: #7f7f82
+}
+body{
+}
+.navbar-default .navbar-nav>.active> a{
+}
+p, h6, .copy, img, a, .navbar{
+  font-size: 20px;
+  border-radius: 8px
+}
+#p1 a {
+  color: #7f7f82;
+  display: block;
+  text-align: center;
+  margin: auto;
+  border: 2px solid black;
+  padding: 5px;
+  background-color: #e7e7e7
+
+}
+.navbar-default .navbar-brand {
+  color: #7f7f82;
+  font-size: 20px
+}
+.copy, .navbar {
+  border-left: 0;
+  border-right: 0
+}
+.copy{
+  border-bottom: 0;
+  margin-bottom: 0;
+
+}
+.navbar {
+  border-top: 0;
+  margin-top: 0;
+  position: fixed;
+  top:0;
+  width: 100%;
+}
+body{
+  margin-top: 50px;
+  margin-bottom: 60px;
+
+}

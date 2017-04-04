@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Brand</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans|Source+Sans+Pro" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class = "main container-fluid">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="./index.html">Brand</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="./index.html">Home</a></li>
+            <li class="active"><a href="./books.html">Books</a></li>
+            <li><a href="./authors.html">Authors</a></li>
+            <li><a href="./search.html">Search</a></li>
+            <li id ="login"><a id="login-button">Log In</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="info-cont">
+
+          <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sort by Genre
+          </button>
+          <div class="dropdown-menu genres" aria-labelledby="dropdownMenu2">
+          <button class="dropdown-item" id="all" type="button">All</button>
+          </div>
+          </div>
+          <ul class="books">
+          </ul>
+
+</div>
+    <footer class="footer"><p class="copy">&copy;2017 Brand | email: test@test.com | Phone: (222)222-2222</p>
+    </footer>
+</div>
+  </body>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="./scripts/books.js"></script>
+</html>
