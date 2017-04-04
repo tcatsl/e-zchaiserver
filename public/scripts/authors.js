@@ -15,9 +15,9 @@ $(document).ready(function(){
         $author.append('<a href="/author.html?id='+el.id+'">'+el.firstname+' '+el.lastname+'</a>')
         $('.authors').append($author.clone())
       })
-      if ($('.author').length > 2){
+      if ($('.author').length > 10){
         var $pagesli = $('<li>')
-        var pages = Math.ceil(($('.author').length /2))
+        var pages = Math.ceil(($('.author').length /10))
         console.log(pages)
         for (var i = pages; i > 0; i--){
           var $pagelink = $('<a class="page" value='+i+'>Page: '+i+'</a>')
@@ -26,8 +26,8 @@ $(document).ready(function(){
         $('.authors').prepend($pagesli)
         $('.page').click(function(e){
           var p = $(this).attr('value')
-          var stuff = p * 2
-          var minimum = stuff - 2
+          var stuff = p * 10
+          var minimum = stuff - 10
           $('.author').each(function(ind, el){
             console.log(ind, el)
             if ($(el).index('.author')+ 1 > minimum && $(el).index('.author') < stuff ){
@@ -39,7 +39,7 @@ $(document).ready(function(){
         })
         $('.author').each(function(ind, el){
           console.log(ind, el)
-          if ($(el).index('.author') > 1){
+          if ($(el).index('.author') > 9){
           $(el).hide()
         }
         })

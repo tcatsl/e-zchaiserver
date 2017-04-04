@@ -48,7 +48,7 @@ $(document).ready(function(){
       $('.books').append('<p>Total Books: '+books.length+'</p>')
       if ($('.book').length > 2){
         var $pagesli = $('<li>')
-        var pages = Math.ceil(($('.book').length /2))
+        var pages = Math.ceil(($('.book').length /10))
         console.log(pages)
         for (var i = pages; i > 0; i--){
           var $pagelink = $('<a class="page" value='+i+'>Page: '+i+'</a>')
