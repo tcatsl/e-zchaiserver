@@ -152,9 +152,9 @@ body{
   margin: auto;
   padding: 0
 }
-.info-cont a, p {
+/*.info-cont a, p {
   margin: 10px;
-}
+}*/
 .info-cont ul> li {
   border-radius: 8px;
   margin: 10px;
