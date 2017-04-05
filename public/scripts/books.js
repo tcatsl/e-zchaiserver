@@ -8,25 +8,54 @@ $(document).ready(function(){
     $('#logout-button').click(function(e){
       $.post('/logout').then((data)=> window.location= './index.html')
     })
+    function createPages(){
+      $('#pagesitem').remove()
+    if ($('.showngenre').length > 10){
+      var $pagesli = $('<li id="pagesitem">')
+      var pages = Math.ceil(($('.showngenre').length /10))
+      console.log(pages)
+      for (var i = pages; i > 0; i--){
+        var $pagelink = $('<a class="page" value='+i+'>Page: '+i+'</a>')
+        $pagesli.prepend($pagelink)
+      }
+      $('.books').prepend($pagesli)
+      $('.page').click(function(e){
+        var p = $(this).attr('value') || 1
+        var stuff = p * 10
+        var minimum = stuff - 10
+        $('.showngenre').each(function(ind, el){
+          console.log(ind, el)
+          if ($(el).index('.showngenre')+ 1 > minimum && $(el).index('.showngenre') < stuff ){
+          $(el).show().addClass('showngenre')
+        } else {
+          $(el).hide().removeClass('shownpage')
+        }
+      })
+      })
+      $('.page')[0].click()
+    }
+  }
     $.get('/book/genre').then(function(genres){
       genres.forEach((genre, index, list)=>{
         $('.genres').append('<button id="'+genre.genre+'" class="dropdown-item" type="button">'+genre.genre+'</button>')
       $('#'+genre.genre).click(function(e){
         // e.preventDefault()
-        $('.book').hide()
-        $('.'+genre.genre).show()
+        $('.book').hide().removeClass('showngenre')
+        $('.'+genre.genre).show().addClass('showngenre')
+        createPages()
       })
     })
       $('#all').click(function(e){
         // e.preventDefault()
-        $('.book').show()
+        $('.book').show().addClass('showngenre')
+        createPages()
       })
     })
     // <button class="dropdown-item" type="button">Action</button>
     $.get('/book').then((data)=>{
       var books = data
       data.forEach(function(el, ind, arr){
-        var $book = $('<li class="'+el.id+' '+el.genre+' '+'book">')
+        var $book = $('<li class="'+el.id+' '+el.genre+' '+'book showngenre">')
         $book.append('<a href="/book.html?id='+el.id+'">'+el.name+'</a>')
         $('.books').append($book.clone())
         var $authors = $('<p>')
@@ -45,37 +74,9 @@ $(document).ready(function(){
             $('.'+el.id).append($authors.clone())
         })
       })
-      $('.books').append('<p>Total Books: '+books.length+'</p>')
-      if ($('.book').length > 2){
-        var $pagesli = $('<li>')
-        var pages = Math.ceil(($('.book').length /10))
-        console.log(pages)
-        for (var i = pages; i > 0; i--){
-          var $pagelink = $('<a class="page" value='+i+'>Page: '+i+'</a>')
-          $pagesli.prepend($pagelink)
-        }
-        $('.books').prepend($pagesli)
-        $('.page').click(function(e){
-          var p = $(this).attr('value')
-          var stuff = p * 10
-          var minimum = stuff - 10
-          $('.book').each(function(ind, el){
-            console.log(ind, el)
-            if ($(el).index('.book')+ 1 > minimum && $(el).index('.book') < stuff ){
-            $(el).show()
-          } else {
-            $(el).hide()
-          }
-        })
-        })
-      }
-      $('.book').each(function(ind, el){
-        console.log(ind, el)
-        if ($(el).index('.book') > 9){
-        $(el).hide()
-      }
-      })
+      $('.books').append('<p id="tot">Total Books: '+books.length+'</p>')
+      createPages()
     })
-  }
-})
+    }
+  })
 })

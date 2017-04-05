@@ -10,11 +10,24 @@ $(document).ready(function(){
     })
     $.get('/author').then((data)=>{
       var authors = data
+      count = 0
+      target = authors.length
       authors.forEach(function(el, ind, arr){
         var $author = $('<li class="author '+el.id+'">')
         $author.append('<a href="/author.html?id='+el.id+'">'+el.firstname+' '+el.lastname+'</a>')
+        $.get('/author/books/'+ el.id).then((data)=>{
+          count++
+          $author.append('<p>Books:</p>')
+          data.forEach(function(book, index){
+            $author.append('<p><a href="./book.html?id='+book.id+'">'+book.name+'</a></p>')
+          })
         $('.authors').append($author.clone())
+        if (count == target){
+          $('.authors').append('<p>Total Authors: '+authors.length+'</p>')
+        }
       })
+
+    })
       if ($('.author').length > 10){
         var $pagesli = $('<li>')
         var pages = Math.ceil(($('.author').length /10))
@@ -44,8 +57,7 @@ $(document).ready(function(){
         }
         })
       }
-      $('.authors').append('<p>Total Authors: '+authors.length+'</p>')
     })
-  }
+}
 })
 })

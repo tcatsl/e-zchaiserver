@@ -16,7 +16,7 @@ router.post('/searchauthorbook', function(req, res){
   var searchterm = req.body.searchterm
 
   var booksearch = knex.select('*').from('book').where('book.description', 'ilike', '%'+searchterm+'%').orWhere('book.name', 'ilike', '%'+searchterm+'%').orWhere('book.genre', 'ilike', '%'+searchterm+'%')
-  var authsearch = knex.select().from('author').where('author.firstname', 'ilike', '%'+searchterm+'%').orWhere('author.lastname', 'ilike', '%'+searchterm+'%').orWhere('author.bio', 'ilike', '%'+searchterm+'%')
+  var authsearch = knex.select('*').from('author').where('author.firstname', 'ilike', '%'+searchterm+'%').orWhere('author.lastname', 'ilike', '%'+searchterm+'%').orWhere('author.bio', 'ilike', '%'+searchterm+'%')
 
 Promise.all([booksearch, authsearch])
   .then((data)=>{res.send(data)})
