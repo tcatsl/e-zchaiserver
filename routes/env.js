@@ -23,15 +23,15 @@ const init2 = {
 }
 router.put('/:id', jwt(init), (req, res)=>{
   var env = req.body
-    var id = req.params.id
-    env.users_email = req.user.email
-    env.short_id = req.params.id
-    return knex('envs').where({
-      'short_id': id,
-      'users_email': req.user.email
-    }).update(req.body, '*').then((result)=> {
-        res.json(result)
-    })
+  var id = req.params.id
+  env.users_email = req.user.email
+  env.short_id = req.params.id
+  return knex('envs').where({
+    'short_id': id,
+    'users_email': req.user.email
+  }).update(req.body, '*').then((result)=> {
+    res.json(result)
+  })
 })
 
 router.get('/myenvs', jwt(init), (req, res) => {
