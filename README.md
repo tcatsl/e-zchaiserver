@@ -6,5 +6,10 @@
 ``` bash
 # install dependencies
 npm install
+
+# set up database
+createdb ezchai
+knex migrate:latest
+
 # run locally on port 3000
 npm start
